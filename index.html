@@ -18,6 +18,7 @@
             <button onclick="handleLogin()">Mulai Tracking</button>
         </div>
     </div>
+
     <!-- NOTIFICATION -->
     <div id="notification" class="notification"></div>
 
@@ -40,34 +41,49 @@
     </header>
 
     <!-- HERO SECTION -->
-<!-- HERO SECTION (UPDATE) -->
-<section class="hero" id="home">
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Selamat Datang di HealthTrack</h1>
+            <p id="heroSubtitle">Platform terpercaya untuk memantau gaya hidup sehat remaja dan mahasiswa</p>
+            <div id="userGreeting"></div>
+            <a href="#check" class="cta-button">Mulai Cek Kesehatan</a>
+        </div>
+    </section>
+
     <div class="container">
-        <h1>Selamat Datang di HealthTrack</h1>
-        <p id="heroSubtitle">Platform terpercaya untuk memantau gaya hidup sehat remaja dan mahasiswa</p>
-        <div id="userGreeting" class="hidden"></div>
-        <a href="#check" class="cta-button">Mulai Cek Kesehatan</a>
-    </div>
-</section>
-       <!-- CEK KESEHATAN HARIAN - UPDATE SELECT AKTIVITAS -->
-<div class="form-group">
-    <label for="activity">Aktivitas Fisik</label>
-    <select id="activity" required>
-        <option value="">Pilih aktivitas</option>
-        <optgroup label="Olahraga">
-            <option value="ringan">Ringan (jalan santai, yoga)</option>
-            <option value="sedang">Sedang (jogging, bersepeda)</option>
-            <option value="berat">Berat (olahraga intensif, gym)</option>
-            <option value="berjalan">Berjalan (jalan kaki aktif)</option>
-            <option value="berlari">Berlari (lari pagi/sore)</option>
-        </optgroup>
-        <optgroup label="Aktivitas Harian">
-            <option value="belajar">Belajar</option>
-            <option value="sekolah">Sekolah / Kuliah</option>
-            <option value="rutin">Tidak olahraga / hanya aktivitas rutin</option>
-        </optgroup>
-    </select>
-</div>
+        <!-- CEK KESEHATAN HARIAN -->
+        <section id="check">
+            <h2>📋 Cek Kesehatan Harian</h2>
+            <form id="healthForm">
+                <div class="form-group">
+                    <label for="sleep">Jam Tidur (jam)</label>
+                    <input type="number" id="sleep" min="0" max="24" step="0.5" required>
+                </div>
+                <div class="form-group">
+                    <label for="water">Jumlah Air Minum (gelas)</label>
+                    <input type="number" id="water" min="0" max="20" required>
+                </div>
+                <div class="form-group">
+                    <label for="activity">Aktivitas Fisik</label>
+                    <select id="activity" required>
+                        <option value="">Pilih aktivitas</option>
+                        <optgroup label="Olahraga">
+                            <option value="ringan">Ringan (jalan santai, yoga)</option>
+                            <option value="sedang">Sedang (jogging, bersepeda)</option>
+                            <option value="berat">Berat (olahraga intensif, gym)</option>
+                            <option value="berjalan">Berjalan (jalan kaki aktif)</option>
+                            <option value="berlari">Berlari (lari pagi/sore)</option>
+                        </optgroup>
+                        <optgroup label="Aktivitas Harian">
+                            <option value="belajar">Belajar</option>
+                            <option value="sekolah">Sekolah / Kuliah</option>
+                            <option value="rutin">Tidak olahraga / hanya aktivitas rutin</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <button type="submit">Cek Kesehatan Saya</button>
+            </form>
+
             <!-- REMINDER SETTING -->
             <div class="reminder-section">
                 <h3>⏰ Pengingat Harian</h3>
@@ -143,24 +159,21 @@
             </div>
         </section>
 
-<!-- DASHBOARD (UPDATE - tambahkan tombol reset) -->
-<section id="dashboard" class="hidden">
-    <h2>📊 Dashboard Ringkasan</h2>
-    
-    <!-- TOMBOL EXPORT & RESET -->
-    <div style="text-align: center; margin-bottom: 2rem;">
-        <button onclick="exportData()" style="width: auto; padding: 1rem 3rem; background: var(--secondary-gradient);">
-            🖨️ Cetak / Export Laporan
-        </button>
-        <button onclick="resetUserData()" class="reset-btn">
-            🗑️ Reset Data Saya
-        </button>
-    </div>
-    
-    <div class="dashboard-grid" id="dashboardContent"></div>
-    
-    <!-- ... sisa kode dashboard ... -->
+        <!-- DASHBOARD -->
+        <section id="dashboard" class="hidden">
+            <h2>📊 Dashboard Ringkasan</h2>
+            
+            <!-- TOMBOL EXPORT & RESET -->
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <button onclick="exportData()" style="width: auto; padding: 1rem 3rem; background: var(--secondary-gradient); border: none; border-radius: 15px; color: white; font-weight: bold; cursor: pointer;">
+                    🖨️ Cetak / Export Laporan
+                </button>
+                <button onclick="resetUserData()" class="reset-btn">
+                    🗑️ Reset Data Saya
+                </button>
             </div>
+            
+            <div class="dashboard-grid" id="dashboardContent"></div>
             
             <!-- CHART SECTION -->
             <div class="chart-container">
